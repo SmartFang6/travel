@@ -1,5 +1,5 @@
 <template>
-  <div class="icons">
+  <div class="icons" style="margin-top:.1rem">
     <swiper>
       <swiper-slide v-for="(page , index) of pages" :key="page.id">
         <div class="icon" v-for="item in page" :key="item.id">
@@ -105,19 +105,17 @@ export default {
 @import '~styles/varibles.styl';
 @import '~styles/mixins.styl';
 
-.icons >>> .swiper-container {
+.icons >>> .swiper-container 
   overflow: hidden;
   height: 0;
   padding-bottom: 42%;
-
-  .icon {
+  .icon 
     float: left;
     width: 25%;
     padding-bottom: 21%;
     // height 0
     position: relative;
-
-    .icon-img {
+    .icon-img 
       position: absolute;
       top: 0;
       left: 0;
@@ -125,15 +123,11 @@ export default {
       bottom: 0.44rem;
       box-sizing: border-box;
       padding: 0.1rem;
-
-      .img-content {
+      .img-content 
         width: 62%;
         margin: 0 auto;
         display: block;
-      }
-    }
-
-    .icon-desc {
+    .icon-desc 
       position: absolute;
       left: 0;
       right: 0;
@@ -141,8 +135,5 @@ export default {
       line-height: 0.44rem;
       text-align: center;
       color: $darkTextColor;
-      ellipsis()
-    }
-  }
-}
+      ellipsis();
 </style>
