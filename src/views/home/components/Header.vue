@@ -6,7 +6,7 @@
       输入城市/景点/游玩主题
       </div>
     <div class="header-right">
-      城市
+      {{this.city}}
       <span class="iconfont">&#xe64a;</span>
     </div>
   </div>
@@ -15,9 +15,15 @@
 <script>
 export default {
   components:{},
-  props:{},
+  props:{
+    city:{
+        type:String,
+        defaule:'河南'
+      }
+  },
   data(){
     return {
+      
     }
   },
   computed:{},

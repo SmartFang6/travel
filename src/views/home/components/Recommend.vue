@@ -4,7 +4,7 @@
      热门推荐
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of recommend" :key="item.id">
         <!-- <div class="item-img-wrapper"> -->
         <img class="item-img" :src="item.imgUrl" alt="">
         <!-- </div> -->
@@ -22,34 +22,41 @@
 export default {
   name:'Recommend',
   components:{},
-  props:{},
+  props:{
+    recommend:{
+      type:Array,
+      default(){
+        return []
+      }
+    }
+  },
   data(){
     return {
-      recommendList:[
-        {
-          id:'0001',
-          imgUrl:'https://imgs.qunarzz.com/p/tts8/1912/5c/cd2412a1b20fbe02.jpg_160x160_a4868dd8.jpg',
-          title:'北京-泰国6天跟团游',
-          desc:'【郑州出发】嵩山少林寺+龙门石窟一日游【纯玩/免费上门接】'
-        },
-        {
-          id:'0002',
-          imgUrl:'https://imgs.qunarzz.com/p/tts5/1606/d1/d1844dd2efaf379a.png_160x160_28290e9d.png',
-          title:'北京-清迈6天自由行',
-          desc:'含往返飞机票(含税)+5晚住宿'
-        },
-        {
-          id:'0003',
-          imgUrl:'https://imgs.qunarzz.com/p/tts5/1908/5d/43b314dfcbeb3f02.jpg_160x160_d56b8c39.jpg',
-          title:'北京-曼谷6天跟团游',
-          desc:'【郑州起止】云台山+红石峡+玻璃栈道2日【纯玩上门接】'
-        },
-        {
-          id:'0004',
-          imgUrl:'https://imgs.qunarzz.com/p/tts0/1803/31/5bf6e71372113102.jpg_160x160_e316091e.jpg',
-          title:'新乡1天自由行',
-          desc:'八里沟1日|郑州到新乡南太行八里沟1日游'
-        },
+      // recommendList:[
+      //   {
+      //     id:'0001',
+      //     imgUrl:'https://imgs.qunarzz.com/p/tts8/1912/5c/cd2412a1b20fbe02.jpg_160x160_a4868dd8.jpg',
+      //     title:'北京-泰国6天跟团游',
+      //     desc:'【郑州出发】嵩山少林寺+龙门石窟一日游【纯玩/免费上门接】'
+      //   },
+      //   {
+      //     id:'0002',
+      //     imgUrl:'https://imgs.qunarzz.com/p/tts5/1606/d1/d1844dd2efaf379a.png_160x160_28290e9d.png',
+      //     title:'北京-清迈6天自由行',
+      //     desc:'含往返飞机票(含税)+5晚住宿'
+      //   },
+      //   {
+      //     id:'0003',
+      //     imgUrl:'https://imgs.qunarzz.com/p/tts5/1908/5d/43b314dfcbeb3f02.jpg_160x160_d56b8c39.jpg',
+      //     title:'北京-曼谷6天跟团游',
+      //     desc:'【郑州起止】云台山+红石峡+玻璃栈道2日【纯玩上门接】'
+      //   },
+      //   {
+      //     id:'0004',
+      //     imgUrl:'https://imgs.qunarzz.com/p/tts0/1803/31/5bf6e71372113102.jpg_160x160_e316091e.jpg',
+      //     title:'新乡1天自由行',
+      //     desc:'八里沟1日|郑州到新乡南太行八里沟1日游'
+      //   },
         // {
         //   id:'0005',
         //   imgUrl:'//imgs.qunarzz.com/sight/p0/1504/de/de67e39701f98515.water.jpg_256x160_1ccdec10.jpg',
@@ -68,7 +75,7 @@ export default {
         //   title:'北京-三亚5天自由行',
         //   desc:'含往返飞机票(含税)+4晚住宿'
         // },
-      ]
+      // ]
     }
   },
   computed:{},

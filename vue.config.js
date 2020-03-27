@@ -12,7 +12,14 @@ module.exports = {
                 'assets': '@/assets',
                 'network': '@/network',
                 'views': '@/views',
-                'styles':'@/assets/styles'
+                'styles': '@/assets/styles'
+            }
+        }
+    },
+    devServer: {
+        proxy: {
+            '/api': {
+                target: 'http://localhost:8080'
             }
         }
     }
