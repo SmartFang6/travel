@@ -7,15 +7,6 @@
           <div class="button-wrapper">
             <div class="button">北京</div>
           </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
         </div>
       </div>
       <div class="area">
@@ -26,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item,key) of citys" :key="key">
+      <div class="area" v-for="(item,key) of citys" :key="key" :ref="key">
         <div class="title .border-topbottom">{{key}}</div>
         <div class="item-list" v-for="i of item" :key="i.id">
           <div class="item border-bottom">{{i.name}}</div>
@@ -37,22 +28,25 @@
 </template>
 
 <script>
-import Bscroll from 'better-scroll'
+import Bscroll from "better-scroll";
 export default {
   name: "CityList",
   components: {},
   props: {
-    citys:{
-      type:Object,
-      default(){
-        return {}
+    citys: {
+      type: Object,
+      default() {
+        return {};
       }
     },
-    hot:{
-      type:Array,
-      default(){
-        return []
+    hot: {
+      type: Array,
+      default() {
+        return [];
       }
+    },
+    letter: {
+      type: String
     }
   },
   data() {
@@ -60,14 +54,23 @@ export default {
       // scroll:null
     };
   },
-  mounted(){
+  mounted() {
     // this.$nextTick(()=>{
-      this.scroll = new Bscroll(this.$refs.wrapper)
+    this.scroll = new Bscroll(this.$refs.wrapper);
     // })
     // console.log(this.$refs)
   },
   computed: {},
-  created() {},
+  watch: {
+    letter() {
+      // console.log(this.letter);
+      if(this.letter){
+        const element = this.$refs[this.letter][0]
+        // console.log(element)
+        this.scroll.scrollToElement(element)
+      }
+    }
+  },
   methods: {}
 };
 </script>

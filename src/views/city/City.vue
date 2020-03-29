@@ -2,8 +2,8 @@
   <div class="city">
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :citys="citys" :hot="hotCities"></city-list>
-    <city-alphabet :citys="citys"></city-alphabet>
+    <city-list :citys="citys" :hot="hotCities" :letter="letter"></city-list>
+    <city-alphabet :citys="citys" @change="handleClick"></city-alphabet>
   </div>
 </template>
 
@@ -25,7 +25,8 @@ export default {
   data() {
     return {
       citys: {},
-      hotCities:[]
+      hotCities: [],
+      letter:''
     };
   },
   mounted() {
@@ -38,13 +39,16 @@ export default {
       axios.get("http://127.0.0.1:8080/city").then(data => {
         let datas = data.data.data[0];
         if (datas.ret && datas.data) {
-          this.citys = datas.data[0].cities
-          this.hotCities = datas.data[0].hotCities
+          this.citys = datas.data[0].cities;
+          this.hotCities = datas.data[0].hotCities;
         }
-        console.log(datas)
+        console.log(datas);
         // console.log(this.citys);
         // console.log(this.hotCities)
       });
+    },
+    handleClick(letter) {
+      this.letter = letter
     }
   }
 };
