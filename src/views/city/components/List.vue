@@ -5,21 +5,21 @@
         <div class="title .border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{this.$store.state.city}}</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title .border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+          <div class="button-wrapper" @click="handleCity(item.name)" v-for="item of hot" :key="item.id">
             <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
       <div class="area" v-for="(item,key) of citys" :key="key" :ref="key">
         <div class="title .border-topbottom">{{key}}</div>
-        <div class="item-list" v-for="i of item" :key="i.id">
+        <div class="item-list"  @click="handleCity(i.name)" v-for="i of item" :key="i.id">
           <div class="item border-bottom">{{i.name}}</div>
         </div>
       </div>
@@ -51,14 +51,10 @@ export default {
   },
   data() {
     return {
-      // scroll:null
     };
   },
   mounted() {
-    // this.$nextTick(()=>{
     this.scroll = new Bscroll(this.$refs.wrapper);
-    // })
-    // console.log(this.$refs)
   },
   computed: {},
   watch: {
@@ -71,7 +67,14 @@ export default {
       }
     }
   },
-  methods: {}
+  methods: {
+    handleCity(city){
+      // console.log(city)
+      // this.$store.dispatch('changeCity',city) //异步的vuex先修改actions再通过修改mutations而修改state，并传递一个city
+      this.$store.commit('changeCity',city)  //同步的vuex直接修改mutations
+      this.$router.push('/')
+    }
+  }
 };
 </script>
 <style lang="stylus" scoped>

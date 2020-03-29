@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <home-headers :city="citys"></home-headers>
+    <home-headers></home-headers>
     <home-swiper :swiper="swiperList"/>
     <home-icons :icon ="icons" />
     <recommend :recommend="recommendList"></recommend>
@@ -35,7 +35,6 @@ export default {
   },
   mounted(){
     this.getHomeInfo()
-    this.getCity()
   },
   computed:{},
   created(){},
@@ -43,20 +42,6 @@ export default {
     getHomeInfo(){
       axios.get('http://127.0.0.1:3000/index')
       .then(this.getHomeInfoSucc)
-    },
-    getCity(){
-      axios.get('http://127.0.0.1:3000/city')
-      .then(data=>{
-        let datas= data.data.data[0]
-        if(datas.ret && datas.data){
-          this.citys = datas.data[0].cities.B[0].name
-        }
-        // console.log(datas)
-        console.log(this.citys)
-
-        // console.log(this.citys.B[0].name)
-
-      })
     },
     getHomeInfoSucc(data){
       // console.log(data)
