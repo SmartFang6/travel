@@ -1,7 +1,7 @@
 <template>
   <div class="city">
     <city-header></city-header>
-    <city-search></city-search>
+    <city-search :citys="citys"></city-search>
     <city-list :citys="citys" :hot="hotCities" :letter="letter"></city-list>
     <city-alphabet :citys="citys" @change="handleClick"></city-alphabet>
   </div>
@@ -36,13 +36,13 @@ export default {
   created() {},
   methods: {
     getCity() {
-      axios.get("http://127.0.0.1:8080/city").then(data => {
+      axios.get("http://127.0.0.1:3000/city").then(data => {
         let datas = data.data.data[0];
         if (datas.ret && datas.data) {
           this.citys = datas.data[0].cities;
           this.hotCities = datas.data[0].hotCities;
         }
-        console.log(datas);
+        console.log(datas); 
         // console.log(this.citys);
         // console.log(this.hotCities)
       });

@@ -41,11 +41,11 @@ export default {
   created(){},
   methods:{
     getHomeInfo(){
-      axios.get('http://127.0.0.1:8080/index')
+      axios.get('http://127.0.0.1:3000/index')
       .then(this.getHomeInfoSucc)
     },
     getCity(){
-      axios.get('http://127.0.0.1:8080/city')
+      axios.get('http://127.0.0.1:3000/city')
       .then(data=>{
         let datas= data.data.data[0]
         if(datas.ret && datas.data){
