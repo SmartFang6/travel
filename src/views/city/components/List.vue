@@ -29,6 +29,7 @@
 
 <script>
 import Bscroll from "better-scroll";
+import {mapState, mapMutations} from 'vuex'
 export default {
   name: "CityList",
   components: {},
@@ -56,7 +57,9 @@ export default {
   mounted() {
     this.scroll = new Bscroll(this.$refs.wrapper);
   },
-  computed: {},
+  computed: {
+    ...mapState(['city'])
+  },
   watch: {
     letter() {
       // console.log(this.letter);
@@ -71,9 +74,12 @@ export default {
     handleCity(city){
       // console.log(city)
       // this.$store.dispatch('changeCity',city) //异步的vuex先修改actions再通过修改mutations而修改state，并传递一个city
-      this.$store.commit('changeCity',city)  //同步的vuex直接修改mutations
+      // this.$store.commit('changeCity',city)  //同步的vuex直接修改mutations
+      this.changeCity(city)
       this.$router.push('/')
-    }
+      
+    },
+    ...mapMutations(['changeCity'])
   }
 };
 </script>
