@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
-    <swiper v-if="swiper.length" :options = "swiperOption">
+    <swiper v-if="swiper.length" :options="swiperOption">
       <swiper-item v-for="item in swiper" :key="item.id">
         <a :href="item.link">
-          <img :src="item.imgUrl" alt="">
+          <img :src="item.imgUrl" alt />
         </a>
       </swiper-item>
     </swiper>
@@ -11,25 +11,25 @@
 </template>
 
 <script>
-import {Swiper,SwiperItem} from 'components/swiper'
+import { Swiper, SwiperItem } from "components/swiper";
 export default {
-  name:'HomeSwiper',
-  components:{
+  name: "HomeSwiper",
+  components: {
     Swiper,
     SwiperItem
   },
-  props:{
-    swiper:{
-      type:Array,
-      defalut(){
-        return []
+  props: {
+    swiper: {
+      type: Array,
+      defalut() {
+        return [];
       }
     }
   },
-  data(){
+  data() {
     return {
-      swiperOption:{
-        autoPlay:false
+      swiperOption: {
+        autoPlay: false
       }
       // datas:[
       //   {
@@ -49,15 +49,15 @@ export default {
       //     imgurl:'//imgs.qunarzz.com/vs_ceph_vs_tts/ce91c8a4-83b7-44d2-ab3d-951a9fde3a99.jpg_r_480x320x90_888dd947.jpg'
       //   },
       // ]
-    }
+    };
   },
-  computed:{},
-  created(){},
-  methods:{},
-}
+  computed: {},
+  created() {},
+  methods: {}
+};
 </script>
 <style lang="stylus"  scoped>
-  img{
-    height 45vw
-  }
+img {
+  height: 45vw;
+}
 </style>
