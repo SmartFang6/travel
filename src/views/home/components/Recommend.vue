@@ -1,36 +1,34 @@
 <template>
   <div class="recommend">
-    <div class="title">
-     热门推荐
-    </div>
+    <div class="title">热门推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommend" :key="item.id">
+      <router-link :to="'/detail/'+item.id" tag="li" class="item border-bottom" v-for="item of recommend" :key="item.id">
         <!-- <div class="item-img-wrapper"> -->
-        <img class="item-img" :src="item.imgUrl" alt="">
+        <img class="item-img" :src="item.imgUrl" alt />
         <!-- </div> -->
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
           <p class="item-desc">{{item.desc}}</p>
           <button class="item-button">查看详情</button>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name:'Recommend',
-  components:{},
-  props:{
-    recommend:{
-      type:Array,
-      default(){
-        return []
+  name: "Recommend",
+  components: {},
+  props: {
+    recommend: {
+      type: Array,
+      default() {
+        return [];
       }
     }
   },
-  data(){
+  data() {
     return {
       // recommendList:[
       //   {
@@ -57,63 +55,78 @@ export default {
       //     title:'新乡1天自由行',
       //     desc:'八里沟1日|郑州到新乡南太行八里沟1日游'
       //   },
-        // {
-        //   id:'0005',
-        //   imgUrl:'//imgs.qunarzz.com/sight/p0/1504/de/de67e39701f98515.water.jpg_256x160_1ccdec10.jpg',
-        //   title:'北京-甲米5天自由行',
-        //   desc:'含往返飞机票(含税)+4晚住宿'
-        // },
-        // {
-        //   id:'0006',
-        //   imgUrl:'//imgs.qunarzz.com/p/p49/1512/62/ea68202e734827f7.jpg_256x160_67305c3e.jpg',
-        //   title:'北京-北海道6天跟团游',
-        //   desc:'含往返飞机票(含税)+5晚住宿'
-        // },
-        // {
-        //   id:'0007',
-        //   imgUrl:'//imgs.qunarzz.com/p/p66/201304/17/384810d022dd28f793835fbb.jpg_256x160_6a7ec251.jpg',
-        //   title:'北京-三亚5天自由行',
-        //   desc:'含往返飞机票(含税)+4晚住宿'
-        // },
+      // {
+      //   id:'0005',
+      //   imgUrl:'//imgs.qunarzz.com/sight/p0/1504/de/de67e39701f98515.water.jpg_256x160_1ccdec10.jpg',
+      //   title:'北京-甲米5天自由行',
+      //   desc:'含往返飞机票(含税)+4晚住宿'
+      // },
+      // {
+      //   id:'0006',
+      //   imgUrl:'//imgs.qunarzz.com/p/p49/1512/62/ea68202e734827f7.jpg_256x160_67305c3e.jpg',
+      //   title:'北京-北海道6天跟团游',
+      //   desc:'含往返飞机票(含税)+5晚住宿'
+      // },
+      // {
+      //   id:'0007',
+      //   imgUrl:'//imgs.qunarzz.com/p/p66/201304/17/384810d022dd28f793835fbb.jpg_256x160_6a7ec251.jpg',
+      //   title:'北京-三亚5天自由行',
+      //   desc:'含往返飞机票(含税)+4晚住宿'
+      // },
       // ]
-    }
+    };
   },
-  computed:{},
-  created(){},
-  methods:{},
-}
+  computed: {},
+  created() {},
+  methods: {}
+};
 </script>
 <style lang='stylus' scoped>
 @import '~styles/mixins.styl';
-.title
-  margin-top .2rem
-  line-height .8rem
-  background #eeeeee
-  text-indent .2rem
-.item 
-  overflow hidden 
-  display flex
-  height 1.9rem
-  .item-img
-    width 1.7rem
-    height 1.7rem
-    padding .1rem
-  .item-info
-    flex 1  
-    padding .1rem
-    min-width 0
-    .item-title
-      line-height .54rem
-      font-size .32rem
-      ellipsis()
-    .item-desc
-      line-height .4rem
-      color #ccc  
-      padding .06rem 0
-      ellipsis()
-    .item-button
-      background #ff9300
-      padding 0 .12rem
-      border-radius .06rem  
-      color #fff
+
+.title {
+  margin-top: 0.2rem;
+  line-height: 0.8rem;
+  background: #eeeeee;
+  text-indent: 0.2rem;
+}
+
+.item {
+  overflow: hidden;
+  display: flex;
+  height: 1.9rem;
+
+  .item-img {
+    width: 1.7rem;
+    height: 1.7rem;
+    padding: 0.1rem;
+  }
+
+  .item-info {
+    flex: 1;
+    padding: 0.1rem;
+    min-width: 0;
+
+    .item-title {
+      line-height: 0.54rem;
+      font-size: 0.32rem;
+      color: #666;
+      ellipsis();
+    }
+
+    .item-desc {
+      line-height: 0.4rem;
+      color: #ccc;
+      padding: 0.06rem 0;
+      ellipsis();
+    }
+
+    .item-button {
+      background: #ff9300;
+      padding: 0 0.12rem;
+      border-radius: 0.06rem;
+      color: #fff;
+    }
+  }
+}
 </style>

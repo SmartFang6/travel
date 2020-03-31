@@ -15,12 +15,5 @@ module.exports = {
                 'styles': '@/assets/styles'
             }
         }
-    },
-    devServer: {
-        proxy: {
-            '/api': {
-                target: 'http://localhost:8080'
-            }
-        }
     }
 }
