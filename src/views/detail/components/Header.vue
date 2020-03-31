@@ -26,7 +26,10 @@ export default {
     }
   },
   activated(){
-    window.addEventListener('scroll',this.handleScroll) //绑定事件，组件被挂载的时候添加scroll事件，监听浏览器滚动，然后执行handleScroll函数
+    window.addEventListener('scroll',this.handleScroll) //全局的绑定事件，组件被挂载的时候添加scroll事件，监听浏览器滚动，然后执行handleScroll函数
+  },
+  deactivated(){
+    window.removeEventListener('scroll',this.handleScroll) // 页面隐藏的时侯对全局事件进行解绑，防止事件在其他页面也使用
   },
   created(){},
   methods:{
