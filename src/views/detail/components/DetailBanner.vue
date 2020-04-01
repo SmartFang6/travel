@@ -13,16 +13,19 @@
         </div>
       </div>
     </div>
-    <gallary :imgs="bannerList" v-show="showGallary" @close="closeBanner"></gallary>
+    <fade-animation>
+      <gallary :imgs="bannerList" v-show="showGallary" @close="closeBanner"></gallary>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import Gallary from "common/gallary/Gallary";
+import FadeAnimation from "common/fade/FadeAnimation";
 export default {
   name: "DetailBanner",
   components: {
-    Gallary
+    Gallary,FadeAnimation
   },
   props: {
     sightName:{
