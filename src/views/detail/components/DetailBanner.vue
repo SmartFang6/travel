@@ -3,17 +3,17 @@
     <div class="banner" @click="handleBannerClick">
       <img
         class="banner-img"
-        src="//img1.qunarzz.com/sight/p65/201211/07/2dcda4e400ace9f993835fbb.jpg_600x330_569f7302.jpg"
+        :src="bannerImg"
         alt
       />
       <div class="banner-info">
-        <div class="banner-title">龙门石窟(AAAAA景区)</div>
+        <div class="banner-title">{{this.sightName}}</div>
         <div class="banner-number">
-          <span class="iconfont banner-icon">&#xe692;</span> 19
+          <span class="iconfont banner-icon">&#xe692;</span> {{this.bannerList.length}}
         </div>
       </div>
     </div>
-    <gallary :imgs="imgs" v-show="showGallary" @close="closeBanner"></gallary>
+    <gallary :imgs="bannerList" v-show="showGallary" @close="closeBanner"></gallary>
   </div>
 </template>
 
@@ -24,14 +24,20 @@ export default {
   components: {
     Gallary
   },
-  props: {},
+  props: {
+    sightName:{
+      type:String
+    },
+    bannerImg:String,
+    bannerList:Array
+  },
   data() {
     return {
-      showGallary:false,
-      imgs: [
-        "https://imgs.qunarzz.com/sight/p0/1905/96/96bb055f3e3f4bdba3.img.jpg_350x240_4a5553e7.jpg",
-        "https://imgs.qunarzz.com/sight/p0/1409/15/403a04fbfd1657567148840d5269b465.jpg_350x240_14e39820.jpg"
-      ]
+      showGallary:false
+      // imgs: [
+      //   "https://imgs.qunarzz.com/sight/p0/1905/96/96bb055f3e3f4bdba3.img.jpg_350x240_4a5553e7.jpg",
+      //   "https://imgs.qunarzz.com/sight/p0/1409/15/403a04fbfd1657567148840d5269b465.jpg_350x240_14e39820.jpg"
+      // ]
     };
   },
   computed: {},

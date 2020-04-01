@@ -8,6 +8,7 @@ import  'styles/reset.css'
 import  'styles/iconfont.css'
 import  'swiper/dist/css/swiper.css'
 import fastClick from 'fastclick'
+// import 'default-passive-events'
 
 Vue.use(VueAwesomeSwiper/* {default flobal options}*/)
 Vue.config.productionTip = false
