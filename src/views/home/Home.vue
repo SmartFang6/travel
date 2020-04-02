@@ -1,10 +1,14 @@
 <template>
-  <div class="wrapper">
-    <home-headers></home-headers>
-    <home-swiper :swiper="swiperList" />
-    <home-icons :icon="icons" />
-    <recommend :recommend="recommendList"></recommend>
-    <weekend :weekend="weekendList"></weekend>
+  <div>
+    <home-headers class="a"></home-headers>
+    <div class="wrappers" ref="wrapper">
+      <div>
+        <home-swiper :swiper="swiperList" />
+        <home-icons :icon="icons" />
+        <recommend :recommend="recommendList"></recommend>
+        <weekend :weekend="weekendList"></weekend>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,6 +20,8 @@ import Recommend from "./components/Recommend";
 import Weekend from "./components/Weekend";
 import axios from "axios";
 import { mapState } from "vuex";
+import Bscroll from "better-scroll";
+
 export default {
   components: {
     HomeHeaders,
@@ -38,6 +44,7 @@ export default {
   mounted() {
     this.lastCity = this.city;
     this.getHomeInfo();
+    this.scroll = new Bscroll(this.$refs.wrapper);
   },
   activated() {
     if (this.lastCity !== this.city) {
@@ -69,4 +76,11 @@ export default {
 };
 </script>
 <style  scoped>
+.wrappers {
+  height: calc(100vh - 0.86rem);
+}
+.a{
+  z-index: 9;
+  position: relative;
+}
 </style>

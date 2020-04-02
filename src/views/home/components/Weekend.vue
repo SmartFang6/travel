@@ -31,32 +31,6 @@ export default {
   },
   data(){
     return {
-      // recommendList:[
-      //   {
-      //     id:'0001',
-      //     imgUrl:'//imgs.qunarzz.com/p/p48/201302/28/bc44faa497db0dcf93835fbb.jpg_256x160_0ba13461.jpg',
-      //     title:'北京-泰国6天跟团游',
-      //     desc:'含往返飞机票(含税)+5晚住宿'
-      //   },
-      //   {
-      //     id:'0002',
-      //     imgUrl:'//imgs.qunarzz.com/p/p26/201302/28/d98c85ce311ea98693835fbb.jpg_256x160_5197fb68.jpg',
-      //     title:'北京-清迈6天自由行',
-      //     desc:'含往返飞机票(含税)+5晚住宿'
-      //   },
-      //   {
-      //     id:'0003',
-      //     imgUrl:'//imgs.qunarzz.com/p/p78/201302/28/c2da123d4bb12ee593835fbb.jpg_256x160_3755801b.jpg',
-      //     title:'北京-曼谷6天跟团游',
-      //     desc:'含往返飞机票(含税)+5晚住宿'
-      //   },
-      //   {
-      //     id:'0004',
-      //     imgUrl:'//imgs.qunarzz.com/sight/p0/1504/37/37bc07abdd1fdbee.water.jpg_256x160_061797a3.jpg',
-      //     title:'北京-苏梅岛6天自由行',
-      //     desc:'含往返飞机票(含税)+4晚住宿'
-      //   },
-      // ]
     }
   },
   computed:{},
