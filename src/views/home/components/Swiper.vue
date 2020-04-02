@@ -3,7 +3,7 @@
     <swiper v-if="swiper.length" :options="swiperOption">
       <swiper-item v-for="item in swiper" :key="item.id">
         <a :href="item.link">
-          <img :src="item.imgUrl" alt />
+          <img v-lazy="item.imgUrl" alt />
         </a>
       </swiper-item>
     </swiper>

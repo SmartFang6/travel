@@ -15,5 +15,10 @@ module.exports = {
                 'styles': '@/assets/styles'
             }
         }
-    }
+    },
+    pluginOptions: {
+        webpackBundleAnalyzer: {
+          openAnalyzer: false
+        }
+      }
 }

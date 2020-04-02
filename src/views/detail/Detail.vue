@@ -39,27 +39,26 @@ export default {
   computed: {},
   mounted() {
     this.scroll = new Bscroll(this.$refs.wrapper,{
-      probeType:2
+      probeType:2,
+      click:true
     });
     this.scroll.on('scroll',(position)=>{
       // console.log(-position.y)
       let positionY = -position.y
       if(positionY>60 && positionY<140){
         let opacity = positionY/140 //透明度的值0-1
-        console.log(opacity)
         opacity = opacity > 1 ? 1 : opacity
         this.showAbs = false
       }else{
         this.showAbs = true
       }
-      console.log(this.showAbs)
     })
     this.getDetailInfo();
   },
   methods: {
     getDetailInfo() {
       axios
-        .get("http://127.0.0.1:3000/detail?id=" + this.$route.params.id)
+        .get("http://192.168.43.32:3000/detail?id=" + this.$route.params.id)
         .then(this.getData);
     },
     getData(res) {

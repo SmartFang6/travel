@@ -36,7 +36,7 @@ export default {
   created() {},
   methods: {
     getCity() {
-      axios.get("http://127.0.0.1:3000/city").then(data => {
+      axios.get("http://192.168.43.32:3000/city").then(data => {
         let datas = data.data.data[0];
         if (datas.ret && datas.data) {
           this.citys = datas.data[0].cities;

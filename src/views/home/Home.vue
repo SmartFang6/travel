@@ -44,7 +44,9 @@ export default {
   mounted() {
     this.lastCity = this.city;
     this.getHomeInfo();
-    this.scroll = new Bscroll(this.$refs.wrapper);
+    this.scroll = new Bscroll(this.$refs.wrapper,{
+      click:true
+    });
   },
   activated() {
     if (this.lastCity !== this.city) {
@@ -59,7 +61,7 @@ export default {
   methods: {
     getHomeInfo() {
       axios
-        .get("http://127.0.0.1:3000/index?city:" + this.city)
+        .get("http://192.168.43.32:3000/index?city:" + this.city)
         .then(this.getHomeInfoSucc);
     },
     getHomeInfoSucc(data) {
